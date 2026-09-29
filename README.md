@@ -1,65 +1,26 @@
-# LINE: Large-scale information network embedding
+# LINE
 
-** Note this repository will no longer be maintained. For node embedding methods, please use our graph embedding system GraphVite: https://github.com/DeepGraphLearning/graphvite
+本仓库是「LINE」的安卓版本获取入口，附使用资料索引。
 
-**Introduction**
+## 安装文件资源（夸克网盘）
 
-This is the LINE toolkit developed for embedding very large-scale information networks. It is suitable to a variety of networks including directed, undirected, binary or weighted edges. The LINE model is quite efficient, which is able to embed a network with millions of vertices and billions of edges on a single machine within a few hours.
-```
-Contact: Jian Tang, tangjianpku@gmail.com
-Project page: https://sites.google.com/site/pkujiantang/line
-This work was done when the author was working at Microsoft Research
-```
-**Usage**
+> **LINE 安装文件资源（夸克网盘）**：[https://pan.quark.cn/s/cf9b5113dbb9](https://pan.quark.cn/s/cf9b5113dbb9)
 
-We provide both the Windows and LINUX versions. To compile the souce codes, some external packages are required, which are used to generate random numbers for the edge-sampling algorithm in the LINE model. For Windows version, the BOOST package is used and can be downloaded at http://www.boost.org/; for LINUX, the GSL package is used and can be downloaded at http://www.gnu.org/software/gsl/
+## 官方项目
 
-**Network Input**
+- 上游项目：[tangjianpku/LINE](https://github.com/tangjianpku/LINE)
 
-The input of a network consists of the edges in the network. Each line of the input file represents a DIRECTED edge in the network, which is specified as the format "source_node target_node weight" (can be either separated by blank or tab). For each undirected edge, users must use TWO DIRECTED edges to represent it. Here is an input example of a word co-occurrence network:
-```
-good the 3
-the good 3
-good bad 1
-bad good 1
-bad of 4
-of bad 4
-```
+## 更多资料
 
-**Run**
-```
-./line -train network_file -output embedding_file -binary 1 -size 200 -order 2 -negative 5 -samples 100 -rho 0.025 -threads 20
-```
-- -train, the input file of a network;
-- -output, the output file of the embedding;
-- -binary, whether saving the output file in binary mode; the default is 0 (off);
-- -size, the dimension of the embedding; the default is 100;
-- -order, the order of the proximity used; 1 for first order, 2 for second order; the default is 2;
-- -negative, the number of negative samples used in negative sampling; the deault is 5;
-- -samples, the total number of training samples (*Million);
-- -rho, the starting value of the learning rate; the default is 0.025;
-- -threads, the total number of threads used; the default is 1.
+- [下载与安装教程](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/LINE/%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)
+- [免费贴图领取与有效期](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/LINE/%E5%85%8D%E8%B4%B9%E8%B4%B4%E5%9B%BE%E9%A2%86%E5%8F%96%E4%B8%8E%E6%9C%89%E6%95%88%E6%9C%9F.md)
+- [加好友与聊天基础](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/LINE/%E5%8A%A0%E5%A5%BD%E5%8F%8B%E4%B8%8E%E8%81%8A%E5%A4%A9%E5%9F%BA%E7%A1%80.md)
+- [备份失败与复原异常排查](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/LINE/%E5%A4%87%E4%BB%BD%E5%A4%B1%E8%B4%A5%E4%B8%8E%E5%A4%8D%E5%8E%9F%E5%BC%82%E5%B8%B8%E6%8E%92%E6%9F%A5.md)
+- [常见问题与系统环境说明](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/LINE/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E8%AF%B4%E6%98%8E.md)
+- [注册账号与登录指南](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/LINE/%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7%E4%B8%8E%E7%99%BB%E5%BD%95%E6%8C%87%E5%8D%97.md)
+- [账号迁移与聊天记录备份](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/LINE/%E8%B4%A6%E5%8F%B7%E8%BF%81%E7%A7%BB%E4%B8%8E%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%E5%A4%87%E4%BB%BD.md)
+- [全部软件目录](https://github.com/alipymanbu/Android/blob/master/%E5%85%A8%E9%83%A8%E8%BD%AF%E4%BB%B6%E7%9B%AE%E5%BD%95.md)
 
-**Files in the folder**
-- line.cpp, the souce code of the LINE;
-- reconstruct.cpp, the code used for reconstructing the sparse networks into dense ones, which is described in Section 4.3;
-- normalize.cpp, the code for normalizing the embeddings (l2 normalization);
-- concatenate.cpp, the code for concatenating the embeddings with 1st-order and 2nd-order;
+---
 
-**Examples**
-
-We provide an example running script for the Youtube data set (available at http://socialnetworks.mpi-sws.mpg.de/data/youtube-links.txt.gz). The script will first run LINE to learn network embeddings, then it will evaluate the learned embeddings on the node classification task.
-
-To run the script, users first need to compile the evaluation codes by running make.sh in the folder "evaluate". Afterwards, we can run train_youtube.bat or train_youtube.sh to run the whole pipeline.
-
-**Citation**
-
-```
-@inproceedings{tang2015line,
-  title={LINE: Large-scale Information Network Embedding.},
-  author={Tang, Jian and Qu, Meng and Wang, Mingzhe and Zhang, Ming and Yan, Jun and Mei, Qiaozhu},
-  booktitle={WWW},
-  year={2015},
-  organization={ACM}
-}
-```
+> 本仓库由上游项目 fork 而来，原始说明见[上游仓库](https://github.com/tangjianpku/LINE)。
